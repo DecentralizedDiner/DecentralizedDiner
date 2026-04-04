@@ -1,18 +1,195 @@
-# 💫 About Me:
-About Me<br>•	Current Focus: Blockchain development and digital asset management.<br>•	Projects: I’ve worked on various blockchain projects, including smart contracts and decentralized applications (dApps). Check out my repositories for some of my recent work.<br>•	Interests: I’m deeply interested in decentralized technologies and their potential to transform various industries. I’m particularly excited about the applications of smart contracts and decentralized finance (DeFi).<br>
+const {
+  Document, Packer, Paragraph, TextRun, AlignmentType,
+  LevelFormat, BorderStyle, HeadingLevel, TabStopType, TabStopPosition
+} = require('docx');
+const fs = require('fs');
 
+const ACCENT = "1A56DB";   // Professional blue
+const DARK   = "111827";
+const GRAY   = "6B7280";
 
-## 🌐 Socials:
-[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/vrsx0x) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/https://www.instagram.com/vrsx3_/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vrsx/) [![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?logo=Reddit&logoColor=white)](https://reddit.com/user/https://www.reddit.com/user/SevusalSavvy/) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/https://x.com/Vrajesh20121698) 
+function sectionHeader(text) {
+  return new Paragraph({
+    spacing: { before: 180, after: 60 },
+    border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: ACCENT, space: 4 } },
+    children: [
+      new TextRun({ text, bold: true, size: 22, color: ACCENT, font: "Arial" })
+    ]
+  });
+}
 
-# 💻 Tech Stack:
-![Web3.js](https://img.shields.io/badge/web3.js-F16822?style=for-the-badge&logo=web3.js&logoColor=white) ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white) ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) ![OpenStack](https://img.shields.io/badge/Openstack-%23f01742.svg?style=for-the-badge&logo=openstack&logoColor=white) ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white) ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7) ![Linode](https://img.shields.io/badge/linode-00A95C?style=for-the-badge&logo=linode&logoColor=white) ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white) ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) ![GithubPages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white) ![Alibaba Cloud](https://img.shields.io/badge/AlibabaCloud-%23FF6701.svg?style=for-the-badge&logo=alibabacloud&logoColor=white) ![Codeberg](https://img.shields.io/badge/Codeberg-2185D0?style=for-the-badge&logo=Codeberg&logoColor=white) ![Scaleway](https://img.shields.io/badge/SCALEWAY-%234f0599.svg?style=for-the-badge&logo=scaleway&logoColor=white) ![DigitalOcean](https://img.shields.io/badge/DigitalOcean-%230167ff.svg?style=for-the-badge&logo=digitalOcean&logoColor=white) ![Power Bi](https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black) ![Meta](https://img.shields.io/badge/Meta-%230467DF.svg?style=for-the-badge&logo=Meta&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white) ![Gitpod](https://img.shields.io/badge/gitpod-f06611.svg?style=for-the-badge&logo=gitpod&logoColor=white) ![Adobe](https://img.shields.io/badge/adobe-%23FF0000.svg?style=for-the-badge&logo=adobe&logoColor=white) ![AmazonDynamoDB](https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=for-the-badge&logo=Amazon%20DynamoDB&logoColor=white) ![ApacheCassandra](https://img.shields.io/badge/cassandra-%231287B1.svg?style=for-the-badge&logo=apache-cassandra&logoColor=white) ![CockroachLabs](https://img.shields.io/badge/Cockroach%20Labs-6933FF?style=for-the-badge&logo=Cockroach%20Labs&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white) ![MusicBrainz](https://img.shields.io/badge/Musicbrainz-EB743B?style=for-the-badge&logo=musicbrainz&logoColor=BA478F) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white) ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white) ![Apache Flink](https://img.shields.io/badge/Apache%20Flink-E6526F?style=for-the-badge&logo=Apache%20Flink&logoColor=white) ![Apache Ant](https://img.shields.io/badge/Apache%20Ant-A81C7D?style=for-the-badge&logo=Apache%20Ant&logoColor=white) ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white) ![Gunicorn](https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white) ![Apache Tomcat](https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?style=for-the-badge&logo=apache-tomcat&logoColor=black) ![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white) ![Three js](https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white) ![Vue.js](https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![WebGL](https://img.shields.io/badge/WebGL-990000?logo=webgl&logoColor=white&style=for-the-badge) ![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white) ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white) ![Remix](https://img.shields.io/badge/remix-%23000.svg?style=for-the-badge&logo=remix&logoColor=white) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) ![Gatsby](https://img.shields.io/badge/Gatsby-%23663399.svg?style=for-the-badge&logo=gatsby&logoColor=white) ![Green Sock](https://img.shields.io/badge/green%20sock-88CE02?style=for-the-badge&logo=greensock&logoColor=white) ![Gulp](https://img.shields.io/badge/GULP-%23CF4647.svg?style=for-the-badge&logo=gulp&logoColor=white) ![Insomnia](https://img.shields.io/badge/Insomnia-black?style=for-the-badge&logo=insomnia&logoColor=5849BE) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![Poetry](https://img.shields.io/badge/Poetry-%233B82F6.svg?style=for-the-badge&logo=poetry&logoColor=0B3D8D) ![RxJS](https://img.shields.io/badge/rxjs-%23B7178C.svg?style=for-the-badge&logo=reactivex&logoColor=white) ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white) ![OpenGL](https://img.shields.io/badge/OpenGL-%23FFFFFF.svg?style=for-the-badge&logo=opengl) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Chakra](https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white) ![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white) ![Code-Igniter](https://img.shields.io/badge/CodeIgniter-%23EF4223.svg?style=for-the-badge&logo=codeIgniter&logoColor=white) ![Context-API](https://img.shields.io/badge/Context--Api-000000?style=for-the-badge&logo=react) ![Blazor](https://img.shields.io/badge/blazor-%235C2D91.svg?style=for-the-badge&logo=blazor&logoColor=white) ![Ant-Design](https://img.shields.io/badge/-AntDesign-%230170FE?style=for-the-badge&logo=ant-design&logoColor=white) ![Apache Spark](https://img.shields.io/badge/Apache%20Spark-FDEE21?style=for-the-badge&logo=apachespark&logoColor=black) ![Alpine.js](https://img.shields.io/badge/alpinejs-white.svg?style=for-the-badge&logo=alpinedotjs&logoColor=%238BC0D0) ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
+function jobHeader(title, company, location, dates) {
+  return new Paragraph({
+    spacing: { before: 120, after: 20 },
+    tabStops: [{ type: TabStopType.RIGHT, position: 9360 }],
+    children: [
+      new TextRun({ text: company, bold: true, size: 20, color: DARK, font: "Arial" }),
+      new TextRun({ text: " | ", size: 20, color: GRAY, font: "Arial" }),
+      new TextRun({ text: title, bold: true, size: 20, color: ACCENT, font: "Arial" }),
+      new TextRun({ text: "\t", size: 20, font: "Arial" }),
+      new TextRun({ text: `${location}  |  ${dates}`, size: 18, color: GRAY, italics: true, font: "Arial" }),
+    ]
+  });
+}
 
-### ✍️ Random Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
+function bullet(text) {
+  return new Paragraph({
+    numbering: { reference: "bullets", level: 0 },
+    spacing: { before: 20, after: 20 },
+    children: [new TextRun({ text, size: 18, color: DARK, font: "Arial" })]
+  });
+}
 
-  ## 💰 You can help me by Donating
-  [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/https://buymeacoffee.com/vrsx3_) 
+function projHeader(name, stack) {
+  return new Paragraph({
+    spacing: { before: 120, after: 20 },
+    children: [
+      new TextRun({ text: name, bold: true, size: 20, color: DARK, font: "Arial" }),
+      new TextRun({ text: "  |  ", size: 18, color: GRAY, font: "Arial" }),
+      new TextRun({ text: stack, size: 18, color: GRAY, italics: true, font: "Arial" }),
+    ]
+  });
+}
 
-  
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+function skillRow(label, value) {
+  return new Paragraph({
+    spacing: { before: 20, after: 20 },
+    children: [
+      new TextRun({ text: label + ":  ", bold: true, size: 18, color: DARK, font: "Arial" }),
+      new TextRun({ text: value, size: 18, color: DARK, font: "Arial" }),
+    ]
+  });
+}
+
+const doc = new Document({
+  numbering: {
+    config: [{
+      reference: "bullets",
+      levels: [{
+        level: 0, format: LevelFormat.BULLET, text: "•", alignment: AlignmentType.LEFT,
+        style: { paragraph: { indent: { left: 480, hanging: 260 } } }
+      }]
+    }]
+  },
+  styles: {
+    default: { document: { run: { font: "Arial", size: 20, color: DARK } } }
+  },
+  sections: [{
+    properties: {
+      page: {
+        size: { width: 12240, height: 15840 },
+        margin: { top: 864, right: 1008, bottom: 864, left: 1008 }
+      }
+    },
+    children: [
+      // ── NAME ──
+      new Paragraph({
+        alignment: AlignmentType.CENTER,
+        spacing: { before: 0, after: 40 },
+        children: [
+          new TextRun({ text: "VRAJESH RAKESHBHAI SHAH", bold: true, size: 36, color: DARK, font: "Arial" })
+        ]
+      }),
+      // ── TAGLINE ──
+      new Paragraph({
+        alignment: AlignmentType.CENTER,
+        spacing: { before: 0, after: 40 },
+        children: [
+          new TextRun({ text: "Software Engineer  ·  Blockchain & Web3 Developer  ·  AI/ML Enthusiast", size: 18, color: GRAY, italics: true, font: "Arial" })
+        ]
+      }),
+      // ── CONTACT ──
+      new Paragraph({
+        alignment: AlignmentType.CENTER,
+        spacing: { before: 0, after: 160 },
+        border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "D1D5DB", space: 8 } },
+        children: [
+          new TextRun({ text: "+1 (213) 824-6088", size: 18, color: GRAY, font: "Arial" }),
+          new TextRun({ text: "  ·  ", size: 18, color: GRAY, font: "Arial" }),
+          new TextRun({ text: "vrajesh.web3@gmail.com", size: 18, color: GRAY, font: "Arial" }),
+          new TextRun({ text: "  ·  ", size: 18, color: GRAY, font: "Arial" }),
+          new TextRun({ text: "linkedin.com/in/vrsx", size: 18, color: GRAY, font: "Arial" }),
+          new TextRun({ text: "  ·  ", size: 18, color: GRAY, font: "Arial" }),
+          new TextRun({ text: "San Jose, CA 95134  ·  Open to Relocation  ·  Immediate Start", size: 18, color: GRAY, font: "Arial" }),
+        ]
+      }),
+
+      // ── ABOUT ──
+      sectionHeader("ABOUT ME"),
+      new Paragraph({
+        spacing: { before: 60, after: 80 },
+        children: [new TextRun({
+          text: "Passionate software engineer focused on blockchain development, decentralized applications (dApps), and smart contracts. Deeply interested in how decentralized technologies and DeFi are reshaping industries — from compliance infrastructure to real-time fraud detection. I bring full-stack and distributed systems expertise to every project, combining production-grade backend engineering with a drive to build impactful, trustless systems.",
+          size: 18, color: DARK, font: "Arial"
+        })]
+      }),
+
+      // ── SKILLS ──
+      sectionHeader("TECHNICAL SKILLS"),
+      skillRow("Languages", "C++, Python, Scala, Java, Go, SQL, TypeScript, JavaScript, Solidity"),
+      skillRow("Blockchain & Web3", "Solidity, Web3.js, Smart Contracts, dApps, DeFi, Ethereum, Hardhat, IPFS"),
+      skillRow("Systems & Backend", "Scala (gRPC), Spring Boot (Hibernate), Node.js, FastAPI, Kafka, GraphQL, RabbitMQ"),
+      skillRow("AI & ML", "PyTorch, TensorFlow, RAG (Pinecone), Scikit-learn, SHAP/LIME"),
+      skillRow("Cloud & DevOps", "AWS (GPU Clusters, Lambda, EC2, S3), Kubernetes, Docker, Prometheus, GitHub Actions, Jenkins"),
+      skillRow("Frontend", "React.js, Next.js, React Native, Vue.js, TailwindCSS, Three.js, WebGL"),
+      skillRow("Databases", "PostgreSQL, MongoDB, Redis, MySQL, DynamoDB, Apache Cassandra"),
+
+      // ── EXPERIENCE ──
+      sectionHeader("EXPERIENCE"),
+
+      jobHeader("Software Engineer Intern — Compliance Engineering", "Gemini", "New York, NY", "May 2025 – Aug 2025"),
+      bullet("Designed high-throughput Scala/gRPC services backed by PostgreSQL, integrating Hummingbird and Chainalysis; resolved a critical incident affecting 14K+ U.S./EU users, improving fraud detection accuracy by 28% and cutting audit time by 35%."),
+      bullet("Re-architected HubAdmin into a distributed Refine + React frontend with a Scala gRPC backend and Node.js services, enabling scalable account intelligence workflows and reducing analyst overhead by 40%."),
+      bullet("Built automated regression pipelines with Playwright, Jenkins, GitHub Actions, and AWS (EC2, S3, Lambda), strengthening release stability across compliance-critical flows and reducing regression latency by 45%."),
+
+      jobHeader("Research Assistant — Applied AI & ML Research", "CalState Los Angeles", "Los Angeles, CA", "Oct 2024 – Apr 2025"),
+      bullet("Contributed to fault-tolerant distributed training pipelines for Transformer and CNN models using PyTorch and TensorFlow, orchestrating multi-node AWS GPU workloads via Docker to cut latency by 25%."),
+      bullet("Built high-throughput inference microservices with Python and FastAPI, optimizing data ingestion via PostgreSQL and NumPy to maintain 93% accuracy; integrated SHAP and LIME for model explainability in production AI environments."),
+
+      jobHeader("Software Engineer", "DevKrutiTech", "Remote", "Apr 2023 – May 2024"),
+      bullet("Migrated 12 core REST endpoints to a unified GraphQL schema backed by Spring Boot microservices, reducing client-side codebase by 25% and reliably handling 15K+ requests."),
+      bullet("Architected fault-tolerant data pipelines using Kafka, RabbitMQ, and Hibernate to decouple backend bottlenecks — driving a 40% increase in application throughput under peak loads."),
+      bullet("Engineered Redis and PostgreSQL caching layers, slashing system latency by ~300ms and reducing infrastructure scaling costs by 20%."),
+
+      // ── PROJECTS ──
+      sectionHeader("PROJECTS"),
+
+      projHeader("OmniRAG: Context-Aware Enterprise LLM Agent", "Python, PyTorch, FastAPI, Pinecone, React.js, Docker"),
+      bullet("Engineered a high-throughput RAG pipeline using PyTorch, FastAPI, and Pinecone vector databases, mitigating LLM hallucinations by 35% across domain-specific enterprise queries."),
+      bullet("Architected a fault-tolerant Dockerized React.js frontend serving 10K+ concurrent requests with sub-second query latency — secured 1st place among 50+ competing engineering teams."),
+
+      projHeader("LedgerGuard: Real-Time Financial Fraud Detection", "Java, Spring Boot, Kafka, PostgreSQL, Scikit-learn, AWS"),
+      bullet("Architected a distributed financial anomaly detection engine using Java, Spring Boot, and Apache Kafka to asynchronously ingest and process 1M+ daily distributed ledger transactions."),
+      bullet("Integrated a Scikit-learn ML model with PostgreSQL, achieving 96% fraud classification accuracy with 99.9% uptime across autoscaling AWS EC2 instances."),
+
+      projHeader("KubeServe: Distributed AI Model Serving Platform", "Kubernetes, Go, Docker, Prometheus, AWS (EC2, GPU)"),
+      bullet("Developed a cloud-native ML model serving platform in Go, leveraging Kubernetes HPA to dynamically provision AWS GPU nodes based on real-time inference traffic."),
+      bullet("Implemented observability and CI/CD pipelines with Prometheus and Docker, enabling zero-downtime deployments and reducing compute costs by 30%."),
+
+      // ── EDUCATION ──
+      sectionHeader("EDUCATION"),
+      new Paragraph({
+        spacing: { before: 100, after: 20 },
+        tabStops: [{ type: TabStopType.RIGHT, position: 9360 }],
+        children: [
+          new TextRun({ text: "California State University, Los Angeles", bold: true, size: 20, color: DARK, font: "Arial" }),
+          new TextRun({ text: "\t", size: 20, font: "Arial" }),
+          new TextRun({ text: "Aug 2024 – Jan 2026", size: 18, color: GRAY, italics: true, font: "Arial" }),
+        ]
+      }),
+      new Paragraph({
+        spacing: { before: 0, after: 20 },
+        children: [new TextRun({ text: "Master of Science in Computer Science  ·  Los Angeles, CA", size: 18, color: GRAY, font: "Arial" })]
+      }),
+      new Paragraph({
+        spacing: { before: 0, after: 20 },
+        children: [new TextRun({ text: "Coursework: Software Engineering, Artificial Intelligence, Distributed Systems, Data Science, Information Security, Database Management, Computer Graphics, Operating Systems, Software Architecture, Web Programming", size: 17, color: GRAY, italics: true, font: "Arial" })]
+      }),
+    ]
+  }]
+});
+
+Packer.toBuffer(doc).then(buf => {
+  fs.writeFileSync("/mnt/user-data/outputs/Vrajesh_Shah_Resume.docx", buf);
+  console.log("Done");
+});
